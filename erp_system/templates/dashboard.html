@@ -1,0 +1,26 @@
+```html
+{% extends 'base.html' %}
+
+{% block content %}
+  <div class="container">
+    <h1>Welcome to Noodle Manufacturing ERP Dashboard</h1>
+    <div class="row">
+      <div class="col-md-4">
+        <h2>Production</h2>
+        <p>Manage all aspects of noodle production here.</p>
+        <p><a class="btn btn-secondary" href="{% url 'production:index' %}" role="button">View details &raquo;</a></p>
+      </div>
+      <div class="col-md-4">
+        <h2>Quality</h2>
+        <p>Ensure the quality of our noodles here.</p>
+        <p><a class="btn btn-secondary" href="{% url 'quality:index' %}" role="button">View details &raquo;</a></p>
+      </div>
+      <div class="col-md-4">
+        <h2>Warehouse</h2>
+        <p>Manage our warehouse inventory here.</p>
+        <p><a class="btn btn-secondary" href="{% url 'warehouse:index' %}" role="button">View details &raquo;</a></p>
+      </div>
+    </div>
+  </div>
+{% endblock %}
+```

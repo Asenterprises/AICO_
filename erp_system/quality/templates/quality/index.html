@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h2>Quality Control Dashboard</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Batch ID</th>
+        <th>Production Date</th>
+        <th>Quality Status</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for batch in batches %}
+        <tr>
+          <td>{{ batch.id }}</td>
+          <td>{{ batch.production_date }}</td>
+          <td>{{ batch.quality_status }}</td>
+          <td>
+            <a href="{% url 'quality:detail' batch.id %}">View Details</a>
+            <a href="{% url 'quality:edit' batch.id %}">Edit</a>
+          </td>
+        </tr>
+      {% empty %}
+        <tr>
+          <td colspan="4">No batches found.</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}

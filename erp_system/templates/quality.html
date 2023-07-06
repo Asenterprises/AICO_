@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h2>Quality Control Dashboard</h2>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Batch ID</th>
+        <th scope="col">Quality Score</th>
+        <th scope="col">Status</th>
+        <th scope="col">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for batch in batches %}
+        <tr>
+          <th scope="row">{{ forloop.counter }}</th>
+          <td>{{ batch.id }}</td>
+          <td>{{ batch.quality_score }}</td>
+          <td>{{ batch.status }}</td>
+          <td>
+            <a href="{% url 'quality:edit' batch.id %}" class="btn btn-primary">Edit</a>
+            <a href="{% url 'quality:delete' batch.id %}" class="btn btn-danger">Delete</a>
+          </td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}
